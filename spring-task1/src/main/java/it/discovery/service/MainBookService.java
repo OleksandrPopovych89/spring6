@@ -23,7 +23,7 @@ public class MainBookService implements BookService {
 
     private final Map<Integer, Book> bookCache = new ConcurrentHashMap<>();
 
-    public MainBookService(@Qualifier("xml") BookRepository repository) {
+    public MainBookService(/*@Qualifier("xml")*/ BookRepository repository) {
         this.repository = repository;
         System.out.println("Using  repository " + repository.getClass());
     }
