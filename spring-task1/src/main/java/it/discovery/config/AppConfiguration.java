@@ -6,10 +6,7 @@ import it.discovery.repository.XmlBookRepository;
 import it.discovery.service.BookService;
 import it.discovery.service.MainBookService;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 
 @Configuration(proxyBeanMethods = false)
@@ -17,13 +14,15 @@ import org.springframework.core.env.Environment;
 public class AppConfiguration {
     @Bean(initMethod = "init", destroyMethod = "destroy")
     @Qualifier("db")
-    @Primary
+    @Profile("prod")
+//    @Primary
     public BookRepository dbRepository() {
         return new DBBookRepository();
     }
 
     @Bean(initMethod = "init", destroyMethod = "destroy")
     @Qualifier("xml")
+    @Profile("dev")
     public BookRepository xmlRepository(Environment environment) {
         return new XmlBookRepository(environment.getRequiredProperty("xml.file"));
     }
