@@ -19,18 +19,17 @@ import java.util.concurrent.ConcurrentHashMap;
 @Getter
 @Setter
 @Repository
-@Qualifier("bd")
-public class DBBookRepository implements BookRepository {
+@Qualifier("xml")
+public class XmlBookRepository implements BookRepository {
 	private final Map<Integer, Book> books = new ConcurrentHashMap<>();
 
 	private int counter = 0;
 
-	private  String server = "localhost";
+	private  String xmlFile;
 
-	private  String db = "library";
 
 	public void init() {
-		System.out.println("Started db repository with server:" + server + " and database: " + db);
+		System.out.println("Started XML repository with local file:" + xmlFile );
 	}
 
 	public void destroy() {
