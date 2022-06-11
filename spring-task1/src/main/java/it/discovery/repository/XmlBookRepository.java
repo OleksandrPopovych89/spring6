@@ -5,7 +5,6 @@ import jakarta.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,13 +2,10 @@ package it.discovery.service;
 
 import it.discovery.model.Book;
 import it.discovery.repository.BookRepository;
-import it.discovery.repository.DBBookRepository;
 import jakarta.annotation.PostConstruct;
 import jakarta.inject.Inject;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
