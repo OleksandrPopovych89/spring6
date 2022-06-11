@@ -10,4 +10,8 @@ public interface BookRepository {
     Book findBookById(int id);
 
     List<Book> findBooks();
+
+    void init();
+
+    void destroy();
 }

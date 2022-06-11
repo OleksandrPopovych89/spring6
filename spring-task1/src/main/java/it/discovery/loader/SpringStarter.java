@@ -1,5 +1,6 @@
 package it.discovery.loader;
 
+import it.discovery.config.AppConfiguration;
 import it.discovery.model.Book;
 import it.discovery.service.BookService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -8,7 +9,7 @@ import java.util.Arrays;
 
 public class SpringStarter {
     public static void main(String[] args) {
-        try (var context = new AnnotationConfigApplicationContext("it.discovery")) {
+        try (var context = new AnnotationConfigApplicationContext(AppConfiguration.class)) {
 
             BookService service = context.getBean(BookService.class); //TODO Load from context
 
