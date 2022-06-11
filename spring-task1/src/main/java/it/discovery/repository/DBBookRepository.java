@@ -1,6 +1,7 @@
 package it.discovery.repository;
 
 import it.discovery.model.Book;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +22,9 @@ public class DBBookRepository implements BookRepository {
     private final Map<Integer, Book> books = new ConcurrentHashMap<>();
 
     private int counter = 0;
-
+    @Value("${db.host}")
     private String server = "localhost";
-
+    @Value("${db.name}")
     private String db = "library";
 
     public void init() {

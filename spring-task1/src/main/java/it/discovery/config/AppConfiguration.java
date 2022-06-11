@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration(proxyBeanMethods = false)
+@PropertySource("application.properties")
 public class AppConfiguration {
     @Bean(initMethod = "init", destroyMethod = "destroy")
     @Qualifier("db")
