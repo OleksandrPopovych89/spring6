@@ -1,7 +1,6 @@
 package it.discovery.loader;
 
 import it.discovery.model.Book;
-import it.discovery.repository.DBBookRepository;
 import it.discovery.service.BookService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
