@@ -3,9 +3,12 @@ package it.discovery.service;
 import it.discovery.model.Book;
 import it.discovery.repository.BookRepository;
 import it.discovery.repository.DBBookRepository;
+import jakarta.annotation.PostConstruct;
+import jakarta.inject.Inject;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,9 +26,17 @@ public class MainBookService implements BookService {
 
     private final Map<Integer, Book> bookCache = new ConcurrentHashMap<>();
 
+    @Inject
+    private List<BookRepository> repositories;
+
     public MainBookService(/*@Qualifier("xml")*/ BookRepository repository) {
         this.repository = repository;
         System.out.println("Using  repository " + repository.getClass());
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("Found Repositories " + repositories);
     }
 
     @Override

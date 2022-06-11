@@ -1,6 +1,7 @@
 package it.discovery.repository;
 
 import it.discovery.model.Book;
+import jakarta.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,7 +19,8 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 @Getter
 @Setter
-@Repository
+//
+@Named
 @Qualifier("xml")
 //@Primary
 public class XmlBookRepository implements BookRepository {
